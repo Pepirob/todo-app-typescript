@@ -6,7 +6,6 @@ interface Props {
   completed: boolean
   onRemoveTodo: (id: string) => void
   onCompletedTodo: ({ id, completed }: Pick<TodoType, 'id' | 'completed'>) => void
-
 }
 
 export const Todo: React.FC<Props> = ({ id, title, completed, onRemoveTodo, onCompletedTodo }) => {

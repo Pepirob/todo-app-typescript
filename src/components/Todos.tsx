@@ -9,9 +9,16 @@ interface Props {
 
 export const Todos: React.FC<Props> = ({ todos, onRemoveTodo, onCompletedTodo }) => {
   return <ul className='todo-list'>
-    {...todos.map(todo =>
-    <li key={todo.id} className={`${todo.completed ? 'completed' : ''}`}>
-      <Todo onCompletedTodo={onCompletedTodo} id={todo.id} title={todo.title} completed={todo.completed} onRemoveTodo={onRemoveTodo} />
-    </li>)}
+    {...todos.map((todo) => {
+      const className = `${todo.completed ? 'completed' : ''}`
+      return <li key={todo.id} className={className}>
+        <Todo
+          onCompletedTodo={onCompletedTodo}
+          id={todo.id} title={todo.title}
+          completed={todo.completed}
+          onRemoveTodo={onRemoveTodo} />
+    </li>
+    })
+ }
   </ul>
 }
